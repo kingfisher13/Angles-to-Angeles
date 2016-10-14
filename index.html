@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NACIS 2016</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {
+        color: #eee;
+        font-family: 'Droid Serif';
+      }
+
+      .remark-slide-container {
+        background-color: #999;
+      }
+
+      .remark-slide-content {
+        background-color: #333;
+      }
+
+      .background {
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+        margin: 10px;
+      }
+
+      a, a:hover, a:visited {
+        color: #eee;
+      }
+
+      .comic,
+      .comic h1 {
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        font-size: 50px;
+      }
+
+      .remark-code, .remark-inline-code {
+        font-family: 'Ubuntu Mono';
+      }
+
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+
+      /* Two-column layout */
+     .left-column {
+       width: 20%;
+       height: 92%;
+       float: left;
+     }
+     .left-column h2:last-of-type, .left-column h2{
+       margin-top: 20px;
+     }
+     .left-column h2 + h2, .left-column ul{
+       margin-top: 5px;
+     }
+     .right-column {
+       width: 79%;
+       float: right;
+       padding-top: 1em;
+     }
+
+      /* Image layout */
+      img{
+	      max-width: 100%;
+      }
+      .half img{
+	      width: 50%;
+      }
+      .mobile img{
+	      max-height: 80%;
+      }
+
+      .no-spacing,
+      .no-spacing p {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+      class: center, middle
+
+      .comic[
+      # From April Fools' to Hollywood
+      ]
+      ## *The Making of the LA Typographical Map*
+      ### Josh Ryan, Axis Maps
+
+      ---
+
+      class: center, middle
+
+      # History
+
+      ---
+
+      # The Origin of the Species
+
+      .center[
+      ![The first map](img/first-typo-map.png)
+      ]
+
+      ???
+
+      - Created in 2008 by Andy Woodruff
+
+      ---
+
+      background-image: url(img/londons-kerning.jpg)
+      class: background
+
+      ???
+
+      Map by London's Kerning
+
+      ---
+
+      background-image: url(img/paula-scher.jpg)
+      class: background
+
+      ???
+
+      Map by Paula Scher
+
+      More information can be found on Andy's blog:
+      http://andywoodruff.com/blog/typographic-maps/
+      http://andywoodruff.com/blog/typographic-maps-ii/
+      http://andywoodruff.com/blog/typographic-maps-of-boston-and-chicago/
+
+      ---
+
+      background-image: url(img/compilation.png)
+      class: background
+
+      ---
+
+      # Genesis of the LA Map
+
+      - I joined Axis Maps in March 2015
+
+      ???
+
+      - First heard about Axis Maps because of the Typographical Maps
+
+      ---
+
+      # Genesis of the LA Map
+
+      - I joined Axis Maps in March 2015
+
+      - Came from doing GIS/Developer work in Thailand
+
+      ???
+
+      - Used to work in the Humanitarian space, so not a lot of design experience
+      - Wanted to prove my Cartographic credit
+
+      ---
+
+      # Genesis of the LA Map
+
+      - I joined Axis Maps in March 2015
+
+      - Came from doing GIS/Developer work in Thailand
+
+      - Make a map
+
+      ???
+
+      - What kind of map? Obviously a typographic one. LA is a good choice as my wife is from there and Axis Maps hasn't made one from there yet.
+      - But that's a little boring and not very creative.
+
+      ---
+
+      # Genesis of the LA Map
+
+      - I joined Axis Maps in March 2015
+
+      - Came from doing GIS/Developer work in Thailand
+
+      - Make a map
+
+      - April Fools' day 2015
+
+      ???
+
+      - A map so bad it was good. Is that even possible?
+      - Not an obviously bad map, but a subtly bad map
+      - The deeper you go, the more you shudder
+
+      ---
+
+      background-image: url(img/af-map-1.png)
+      class: background
+
+      ???
+
+      - No type hierarchy at all
+      - Red on green parks (perfect for your colorblind friend)
+      - Pink Comic Sans
+
+      ---
+
+      background-image: url(img/af-map-2.png)
+      class: background
+
+      ???
+
+      - Nice bright purple airport
+      - Some of the data is messed up
+      - Wingdings/Webdings - actually made it into the final version (sometimes a bad idea turns into a good idea - or at least one that you can use)
+
+      ---
+
+      class: center, middle
+
+      # 1. Data
+
+      ---
+
+      # Get OSM Data
+      - California data downloaded from [download.geofabrik.de/](http://download.geofabrik.de/)
+
+      - Filtered with [Osmosis](https://wiki.openstreetmap.org/wiki/Osmosis) - can filter by coords, and type of node/way/relation
+      ```
+      osmosis
+      --rbf california-latest.osm.pbf
+      --bounding-box top=34.18 left=-118.53 bottom=33.65 right=-118.10
+      --tf accept-ways highway=secondary,tertiary
+      --used-node
+      --wx highways.osm
+      ```
+
+      - Could do something similar now with Mapzen's Metro extracts - [mapzen.com/data/metro-extracts/](https://mapzen.com/data/metro-extracts/)
+
+      ---
+
+      # Move To Illustrator
+      - Converted to SVG with Maperitive - [maperitive.net](http://maperitive.net/)
+
+      - Import into Adobe Illustrator
+
+      ???
+
+      - Could use QGIS to convert to SVG, but I already knew how to do it easily with Maperitive (1 click)
+      - Once it's in Illustrator, now comes the fun part...
+
+      ---
+
+      # Manual Work (Lines)
+
+      - Using Type on a Path tool, convert paths to lines of text
+
+      - Center on line using Type on a Path Options
+
+      ![April Fools' !](img/type-on-a-path.png)
+
+
+      ???
+
+      - Centering - Andy used custom key-binding for this - I did it manually
+
+      ---
+
+      # Manual Work (Areas)
+
+      - Create a Text box that covers the entire area
+
+      - Use the polygon to create a Clipping mask for the Text box
+
+      - Adjust the Text box shape (like any polygon) to ensure no rivers of text
+
+      ![April Fools' !](img/areas.png)
+
+      *Confession - If you don't have polygons from your data (like I didn't), you can take screenshots of OSM online and use those in Illustrator as a tracing guide*
+
+      ---
+
+      class: center, middle
+
+      # 2. Design
+
+      ---
+
+      # Design Goals for April Fools' version
+      ### *aka Don't try this at home*
+
+      - Data
+        - Mislabel things
+        - Spelling mistakes ("5rd st", misspellings of local names, etc...)
+        - No Consistency ("120th St" vs "140 St")
+        - OSM Data specific - make sure to leave off different possible tags
+
+      ???
+
+      - OSM Data specific - (e.g. highways can be Motorway, Primary, Secondary, Tertiary, Trunk, Residential - you don't really need that Trunk road section)
+
+      ---
+      # Design Goals for April Fools' version
+      ### *aka Don't try this at home*
+
+      - Data
+        - Mislabel things
+        - Spelling mistakes ("5rd st", misspellings of local names, etc...)
+        - No Consistency ("120th St" vs "140 St")
+        - OSM Data specific - make sure to leave off different possible tags
+      - Type
+        - Too many fonts (4 minimum)
+        - Arbitrary Font Hierarchy (Size, Weight, Style)
+        - Kitschy fonts (Comic Sans, Papyrus, etc...)
+        - Purposefully bad Kerning (especially on a typographic map)
+
+      ???
+
+      - Too many fonts - real advice - 3 max is a stretch but sometimes appropriate. See the Hollywood sign in the published version.
+
+      ---
+      # Design Goals for April Fools' version
+      ### *aka Don't try this at home*
+
+      - Data
+        - Mislabel things
+        - Spelling mistakes ("5rd st", misspellings of local names, etc...)
+        - No Consistency ("120th St" vs "140 St")
+        - OSM Data specific - make sure to leave off different possible tags
+      - Type
+        - Too many fonts (4 minimum)
+        - Arbitrary Font Hierarchy (Size, Weight, Style)
+        - Kitschy fonts (Comic Sans, Papyrus, etc...)
+        - Purposefully bad Kerning (especially on a typographic map)
+      - Color
+        - Use Red and Green for Colorblind viewers
+        - If using an institutions colors on the map, make sure you use the wrong one
+        - Random saturation levels for features that are equivalent in weight
+
+      ---
+
+      # Design of Published version
+
+      - Type
+        - Myriad Pro was chosen as it has a large family. Also has a Condensed version which is nice for small streets
+        - Case is always Upper. Creates a consistent baseline and cap height for a nice smooth edge
+        - Only two families chosen, one serif and one sans-serif as per normal cartographic convention
+
+      ???
+
+      - 2 font families - I violated this for the Hollywood sign and Webdings - a little breaking of the rules can create nice things
+
+      ---
+
+      # Design of Published version
+
+      - Type
+        - Myriad Pro was chosen as it has a large family. Also has a Condensed version which is nice for small streets
+        - Case is always Upper. Creates a consistent baseline and cap height for a nice smooth edge
+        - Only two families chosen, one serif and one sans-serif as per normal cartographic convention
+      - Color
+        - Creates a hierarchy that is 3-4 levels deep
+        - Contrast has been an issue in the past. Reversing text can help with this
+
+      ---
+
+      # Design of Published version
+
+      - Type
+        - Myriad Pro was chosen as it has a large family. Also has a Condensed version which is nice for small streets
+        - Case is always Upper. Creates a consistent baseline and cap height for a nice smooth edge
+        - Only two families chosen, one serif and one sans-serif as per normal cartographic convention
+      - Color
+        - Creates a hierarchy that is 3-4 levels deep
+        - Contrast has been an issue in the past. Reversing text can help with this
+      - Inset map
+        - Match the aesthetic of the title area (angular)
+        - Yellow highlight reminiscent of Rand-McNally
+
+      ???
+
+      - Angular design of inset and title harken back to the City of Angles
+
+      ---
+
+      class: center, middle
+
+      # 3. Review
+
+      ---
+
+      background-image: url(img/editing.png)
+      class: background
+
+      ---
+
+      background-image: url(img/Comparison.png)
+      class: background
+
+      ---
+
+      class: center, middle
+
+      ### Thanks!
+      [axismaps.com](www.axismaps.com) | @karenkingfisher
+
+      ### Both maps available for perusal in the map gallery
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
