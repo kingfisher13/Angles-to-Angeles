@@ -1,0 +1,7 @@
+{
+  "name": "NACIS 2016 talk",
+  "version": "0.0.1",
+  "dependencies": {
+    "remark": "^0.14.0"
+  }
+}
